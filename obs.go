@@ -3,13 +3,12 @@ package CloudStore
 import (
 	"bytes"
 	"fmt"
+	"go-packages/CloudStore/obs"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
 	"strings"
-
-	"github.com/TruthHun/CloudStore/obs"
 )
 
 type OBS struct {
