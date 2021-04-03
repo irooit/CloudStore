@@ -5,6 +5,7 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
+	"github.com/qiniu/go-sdk/v7/auth/qbox"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -13,8 +14,8 @@ import (
 	"time"
 
 	"github.com/astaxie/beego/httplib"
-	"github.com/qiniu/api.v7/auth/qbox"
-	"github.com/qiniu/api.v7/storage"
+	"github.com/qiniu/go-sdk/v7/auth"
+	"github.com/qiniu/go-sdk/v7/storage"
 )
 
 type QINIU struct {
@@ -35,7 +36,7 @@ func NewQINIU(accessKey, secretKey, bucket, domain string) (q *QINIU, err error)
 		Domain:    domain,
 	}
 	q.Domain = strings.TrimRight(q.Domain, "/")
-	q.mac = qbox.NewMac(accessKey, secretKey)
+	q.mac = auth.New(accessKey, secretKey)
 	q.Zone, err = storage.GetZone(accessKey, bucket)
 	if err != nil {
 		return
