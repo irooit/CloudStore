@@ -3,7 +3,7 @@ package CloudStore
 import (
 	"bytes"
 	"fmt"
-	"go-packages/CloudStore/obs"
+	"github.com/irooit/CloudStore/obs"
 	"io/ioutil"
 	"net/http"
 	"net/url"
