@@ -1,4 +1,4 @@
-module go-packages/CloudStore
+module github.com/irooit/CloudStore
 
 go 1.14
 
